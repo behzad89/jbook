@@ -1,0 +1,10 @@
+- file: intro.md
+  #numbered: true
+
+- part: Datasets
+  chapters:
+  - file: docs/datasets/spatialData.md
+  - file: docs/datasets/lulc/lulc_intro.md
+    sections:
+     - file: docs/datasets/lulc/swissTLM3D.md
+     - file: docs/datasets/lulc/swissTLM3D_info.md

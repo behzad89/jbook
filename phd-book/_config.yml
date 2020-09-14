@@ -1,0 +1,12 @@
+# Book settings
+title: POCHAS Project Book
+author: Behzad Valipour Sh. (Environmetal Exposure & Health Unit, Swiss TPH Institute)
+logo: logo.png
+
+latex:
+  latex_engine                : "xelatex"
+  latex_documents:
+    targetname: book.tex
+
+parse:
+  myst_extended_syntax: true
