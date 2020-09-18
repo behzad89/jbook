@@ -8,3 +8,5 @@
     sections:
      - file: docs/datasets/lulc/swissTLM3D.md
      - file: docs/datasets/lulc/swissTLM3D_info.md
+     - file: docs/datasets/lulc/vector25.md
+     - file: docs/datasets/lulc/data_prepration.md

@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LULC Data in Switzerland &#8212; POCHAS Project Book</title>
+    <title>Vector 25 &#8212; POCHAS Project Book</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -35,8 +35,8 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Swiss landscape (TLM3D)" href="swissTLM3D.html" />
-    <link rel="prev" title="Spatial datasets which can be used as predictors" href="../spatialData.html" />
+    <link rel="next" title="Data Prepration" href="data_prepration.html" />
+    <link rel="prev" title="Useful data from Swiss landscape (TLM3D)" href="swissTLM3D_info.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -88,10 +88,10 @@
   </a>
  </li>
  <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="lulc_intro.html">
    LULC Data in Switzerland
   </a>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="swissTLM3D.html">
      Swiss landscape (TLM3D)
@@ -102,8 +102,8 @@
      Useful data from Swiss landscape (TLM3D)
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="vector25.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Vector 25
     </a>
    </li>
@@ -156,7 +156,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/docs/datasets/lulc/lulc_intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/docs/datasets/lulc/vector25.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -192,16 +192,17 @@
         
               <div>
                 
-  <div class="section" id="lulc-data-in-switzerland">
-<h1>LULC Data in Switzerland<a class="headerlink" href="#lulc-data-in-switzerland" title="Permalink to this headline">¶</a></h1>
-<p>There are two different datasets should be used:</p>
+  <div class="section" id="vector-25">
+<h1>Vector 25<a class="headerlink" href="#vector-25" title="Permalink to this headline">¶</a></h1>
+<p>The swissTLM did not include all the natural areas as a class, therefore the supplemented data with agricultural areas were extracted from the older Vector25. Both datasets were from SwissTopo <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0160412017308024#s0010">paper</a>:</p>
+<p>Folowwing layers were extracted to merge with swissTML:</p>
 <ul class="simple">
-<li><p><strong>swissTLM3D</strong></p></li>
-<li><p><strong>vector25</strong></p></li>
+<li><p>Z_BaumS (Baumschule)- Plantation tree</p></li>
+<li><p>Z_GsPist (Graspiste)- Grass</p></li>
+<li><p>Z_ObstAn (Obstangle)- Fruit plantation</p></li>
+<li><p>Z_Reben (Reben)- Wine</p></li>
+<li><p>Z_Uebrig (Ubriiges Gebiet)- Others</p></li>
 </ul>
-<p>The swissTLM3D does not include agricutural and forest areas: theefore the vector25 should be used as supplementary <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0160412017308024#s0010">link</a></p>
-<div class="toctree-wrapper compound">
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -232,8 +233,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../spatialData.html" title="previous page">Spatial datasets which can be used as predictors</a>
-    <a class='right-next' id="next-link" href="swissTLM3D.html" title="next page">Swiss landscape (TLM3D)</a>
+    <a class='left-prev' id="prev-link" href="swissTLM3D_info.html" title="previous page">Useful data from Swiss landscape (TLM3D)</a>
+    <a class='right-next' id="next-link" href="data_prepration.html" title="next page">Data Prepration</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

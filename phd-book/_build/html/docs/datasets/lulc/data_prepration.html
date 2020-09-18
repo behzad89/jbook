@@ -1,0 +1,506 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Prepration &#8212; POCHAS Project Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="Vector 25" href="vector25.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">POCHAS Project Book</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Spatio-temporal modelling of exposure to airborne pollen
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../spatialData.html">
+   Spatial datasets which can be used as predictors
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="lulc_intro.html">
+   LULC Data in Switzerland
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="swissTLM3D.html">
+     Swiss landscape (TLM3D)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="swissTLM3D_info.html">
+     Useful data from Swiss landscape (TLM3D)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="vector25.html">
+     Vector 25
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Data Prepration
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/docs/datasets/lulc/data_prepration.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ground-cover-layer">
+   Ground Cover Layer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settlement-layer">
+   Settlement Layer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agricultural-layer">
+   Agricultural Layer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#others-layer">
+   Others Layer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ceating-lulc-map-and-exploration">
+   Ceating LULC Map and Exploration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#converting-the-vectot-to-raster">
+   Converting the Vectot to Raster
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-prepration">
+<h1>Data Prepration<a class="headerlink" href="#data-prepration" title="Permalink to this headline">¶</a></h1>
+<p>the datasets were imported and codes was prepared based on the metadata. in the next steps the following script was used to join metada with tables and get some intial information:</p>
+<div class="tip admonition">
+<p class="admonition-title">Classes</p>
+<p>From swissTLM3D, <strong>9</strong> groups from Bodenbedeckung (ground cover) layer as follow, plus Siedlungsname (Settlement name) which includes information regarding the residential areas were extracted:</p>
+<ul class="simple">
+<li><p>water course</p></li>
+<li><p>wetlands</p></li>
+<li><p>spare forests</p></li>
+<li><p>brushland/scrubland</p></li>
+<li><p>glacier</p></li>
+<li><p>stagnant waters</p></li>
+<li><p>rock</p></li>
+<li><p>loose rocks</p></li>
+<li><p>dense forest</p></li>
+</ul>
+</div>
+<div class="section" id="ground-cover-layer">
+<h2>Ground Cover Layer<a class="headerlink" href="#ground-cover-layer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">lulc</span><span class="p">.</span><span class="n">ground_cover_with_name</span> <span class="k">AS</span>
+<span class="k">select</span> <span class="o">*</span><span class="p">,</span><span class="n">st_area</span><span class="p">(</span><span class="n">wkb_geometry</span><span class="p">)</span> <span class="k">as</span> <span class="n">area</span>
+<span class="k">from</span> <span class="n">ground_cover</span> <span class="k">join</span> <span class="n">ground_cover_codes</span> <span class="k">on</span> <span class="n">objektart</span> <span class="o">=</span> <span class="n">code</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="settlement-layer">
+<h2>Settlement Layer<a class="headerlink" href="#settlement-layer" title="Permalink to this headline">¶</a></h2>
+<p>Since this layer does not include any code and number, so at first step they were determined:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">settlement</span> <span class="k">ADD</span> <span class="n">code</span> <span class="nb">int</span> <span class="k">default</span> <span class="s1">&#39;settlement&#39;</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">settlement</span> <span class="k">ADD</span> <span class="nb">number</span> <span class="nb">int</span> <span class="k">default</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="agricultural-layer">
+<h2>Agricultural Layer<a class="headerlink" href="#agricultural-layer" title="Permalink to this headline">¶</a></h2>
+<p>These two layers comes from Vector25 datasets. <strong>4</strong> layers were selected as agricultures as follow:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>ObjectVal</p></th>
+<th class="head"><p>Description</p></th>
+<th class="text-align:right head"><p>Count</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Z_BaumS</p></td>
+<td><p>Baumschule</p></td>
+<td class="text-align:right"><p>Plantation tree</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Z_GsPist</p></td>
+<td><p>Graspiste</p></td>
+<td class="text-align:right"><p>Grass</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Z_ObstAn</p></td>
+<td><p>Graspiste</p></td>
+<td class="text-align:right"><p>Fruit plantation</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Z_Reben</p></td>
+<td><p>Reben</p></td>
+<td class="text-align:right"><p>Wine</p></td>
+</tr>
+</tbody>
+</table>
+<p>The rest belongs to the class called others.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">lulc</span><span class="p">.</span><span class="n">vector25_farm</span> <span class="k">as</span>
+<span class="k">select</span> <span class="n">objectid</span><span class="p">,</span><span class="n">objectval</span><span class="p">,</span><span class="n">geom</span>
+    <span class="k">from</span> <span class="n">vector25</span> <span class="k">where</span> <span class="n">objectval</span> <span class="k">in</span> <span class="p">(</span><span class="s1">&#39;Z_BaumS&#39;</span><span class="p">,</span><span class="s1">&#39;Z_ObstAn&#39;</span><span class="p">,</span><span class="s1">&#39;Z_Reben&#39;</span><span class="p">,</span><span class="s1">&#39;Z_GsPist&#39;</span><span class="p">);</span>
+
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">vector25_farm</span> <span class="k">ADD</span> <span class="n">code</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">default</span> <span class="s1">&#39;agricultural area&#39;</span><span class="p">;</span>
+
+
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">vector25_farm</span> <span class="k">ADD</span> <span class="nb">number</span> <span class="nb">int</span> <span class="k">default</span> <span class="mi">18</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">vector25_farm</span> <span class="k">ADD</span> <span class="n">ID</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">;</span>
+
+
+<span class="k">select</span> <span class="k">distinct</span> <span class="n">objectval</span><span class="p">,</span><span class="n">round</span><span class="p">(((</span><span class="k">sum</span><span class="p">(</span><span class="n">st_area</span><span class="p">(</span><span class="n">geom</span><span class="p">)))</span><span class="o">/</span><span class="mi">10000</span><span class="p">)::</span><span class="nb">numeric</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">as</span> <span class="n">area_ha</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">from</span> <span class="n">vector25_farm</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">objectval</span>
+<span class="k">order</span> <span class="k">by</span> <span class="n">area_ha</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<p>the results is as follow:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>ObjectVal</p></th>
+<th class="head"><p>Area(ha)</p></th>
+<th class="text-align:right head"><p>Count</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Z_GsPist</p></td>
+<td><p>105.14</p></td>
+<td class="text-align:right"><p>36</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Z_BaumS</p></td>
+<td><p>1151.55</p></td>
+<td class="text-align:right"><p>998</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Z_Reben</p></td>
+<td><p>17118.76</p></td>
+<td class="text-align:right"><p>5331</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Z_ObstAn</p></td>
+<td><p>27930.81</p></td>
+<td class="text-align:right"><p>37324</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="others-layer">
+<h2>Others Layer<a class="headerlink" href="#others-layer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">lulc</span><span class="p">.</span><span class="n">vector25_others</span> <span class="k">as</span>
+<span class="k">select</span> <span class="n">objectid</span><span class="p">,</span><span class="n">objectval</span><span class="p">,</span><span class="n">geom</span>
+    <span class="k">from</span> <span class="n">vector25</span> <span class="k">where</span> <span class="n">objectval</span> <span class="k">in</span> <span class="p">(</span><span class="s1">&#39;Z_Uebrig&#39;</span><span class="p">);</span>
+
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">vector25_others</span> <span class="k">ADD</span> <span class="n">code</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">default</span> <span class="s1">&#39;others&#39;</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">vector25_others</span> <span class="k">ADD</span> <span class="nb">number</span> <span class="nb">int</span> <span class="k">default</span> <span class="mi">25</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">vector25_others</span> <span class="k">ADD</span> <span class="n">ID</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ceating-lulc-map-and-exploration">
+<h2>Ceating LULC Map and Exploration<a class="headerlink" href="#ceating-lulc-map-and-exploration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Creating the LULC Map</span>
+
+<span class="k">with</span> <span class="n">lulc_map</span> <span class="k">as</span> <span class="p">(</span>
+    <span class="k">select</span> <span class="n">objectid</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">wkb_geometry</span>
+    <span class="k">from</span> <span class="n">ground_cover_with_name</span>
+
+    <span class="k">union</span> <span class="k">all</span>
+
+    <span class="k">select</span> <span class="n">objectid</span><span class="p">,</span> <span class="nb">number</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">wkb_geometry</span>
+    <span class="k">from</span> <span class="n">settlement</span>
+
+    <span class="k">union</span> <span class="k">all</span>
+
+    <span class="k">select</span> <span class="n">objectid</span><span class="p">,</span> <span class="nb">number</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">geom</span>
+    <span class="k">from</span> <span class="n">vector25_farm</span>
+    <span class="k">union</span> <span class="k">all</span>
+
+    <span class="k">select</span> <span class="n">objectid</span><span class="p">,</span> <span class="nb">number</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">geom</span>
+    <span class="k">from</span> <span class="n">vector25_others</span>
+<span class="p">)</span><span class="k">select</span> <span class="o">*</span> <span class="k">into</span> <span class="n">lulc</span><span class="p">.</span><span class="n">lulc_map</span>
+<span class="k">from</span> <span class="n">lulc_map</span><span class="p">;</span>
+
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">lulc_map</span> <span class="k">ADD</span> <span class="n">ID</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Exploration the dataset</span>
+<span class="k">select</span> <span class="k">distinct</span> <span class="n">name</span><span class="p">,</span><span class="n">code</span><span class="p">,</span><span class="n">round</span><span class="p">(((</span><span class="k">sum</span><span class="p">(</span><span class="n">st_area</span><span class="p">(</span><span class="n">wkb_geometry</span><span class="p">)))</span><span class="o">/</span><span class="mi">10000</span><span class="p">)::</span><span class="nb">numeric</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">as</span> <span class="n">area_ha</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">from</span> <span class="n">lulc_map</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">name</span><span class="p">,</span><span class="n">code</span>
+<span class="k">order</span> <span class="k">by</span> <span class="n">area_ha</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<p>the results is as follow:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Name</p></th>
+<th class="head"><p>Area(ha)</p></th>
+<th class="text-align:right head"><p>Count</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>water course</p></td>
+<td><p>13989.7</p></td>
+<td class="text-align:right"><p>1088</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>wetlands</p></td>
+<td><p>18385.67</p></td>
+<td class="text-align:right"><p>12080</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>spare forests</p></td>
+<td><p>35111.75</p></td>
+<td class="text-align:right"><p>13286</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>brushland/scrubland</p></td>
+<td><p>62442.2</p></td>
+<td class="text-align:right"><p>27347</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>glacier</p></td>
+<td><p>106742</p></td>
+<td class="text-align:right"><p>5349</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>stagnant waters</p></td>
+<td><p>18385.67</p></td>
+<td class="text-align:right"><p>16537</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>rock</p></td>
+<td><p>305289.32</p></td>
+<td class="text-align:right"><p>145952</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>loose rocks</p></td>
+<td><p>324763.28</p></td>
+<td class="text-align:right"><p>12080</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>dense forest</p></td>
+<td><p>1090630.03</p></td>
+<td class="text-align:right"><p>102296</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>settlement</p></td>
+<td><p>360576.44</p></td>
+<td class="text-align:right"><p>57145</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>agricultural area</p></td>
+<td><p>46306.26</p></td>
+<td class="text-align:right"><p>43689</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>others</p></td>
+<td><p>2230695.54</p></td>
+<td class="text-align:right"><p>143949</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="converting-the-vectot-to-raster">
+<h2>Converting the Vectot to Raster<a class="headerlink" href="#converting-the-vectot-to-raster" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gdal_rasterize -l lulc.lulc_map -a code -ts <span class="m">1000</span>.0 <span class="m">1000</span>.0 -a_nodata <span class="m">0</span>.0 -te <span class="m">485422</span>.117343434 <span class="m">75159</span>.3856499034 <span class="m">834069</span>.939666441 <span class="m">298248</span>.830831526 -ot Float32 -of GTiff <span class="s2">&quot;PG:dbname=&#39;pochasdb&#39; host=127.0.0.2 port=5432 user=&#39;gis&#39; password=&#39;gis&#39;&quot;</span> swiss_lulc_map.tif
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="../../../_images/lulc_map.PNG"><img alt="fishy" class="bg-primary align-center" src="../../../_images/lulc_map.PNG" style="width: 500px;" /></a>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs\datasets\lulc"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="vector25.html" title="previous page">Vector 25</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Behzad Valipour Sh. (Environmetal Exposure & Health Unit, Swiss TPH Institute)<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../../_static/js/index.js"></script>
+    
+  </body>
+</html>
