@@ -10,3 +10,4 @@
      - file: docs/datasets/lulc/swissTLM3D_info.md
      - file: docs/datasets/lulc/vector25.md
      - file: docs/datasets/lulc/data_prepration.md
+     - file: docs/datasets/lulc/single_tree_pop_density.md
